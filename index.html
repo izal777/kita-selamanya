@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat 2 Bulan!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ffe6f0, #fdddf3);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+    }
+    .container {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      color: #cc0066;
+    }
+    h1 {
+      font-size: 2.2em;
+      color: #ff3399;
+    }
+    p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      max-width: 500px;
+    }
+    .chibi {
+      width: 120px;
+      margin-bottom: 15px;
+      animation: dance 1s infinite;
+    }
+    @keyframes dance {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+    .nav {
+      margin-top: 20px;
+    }
+    .nav button {
+      padding: 10px 20px;
+      background: #ff66b2;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      font-size: 1em;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    .slide {
+      display: none;
+    }
+    .slide.active {
+      display: block;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<audio autoplay loop id="music">
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_f90e679f57.mp3?filename=romantic-piano-loop-122849.mp3" type="audio/mp3">
+</audio><div class="container">
+  <img src="https://i.ibb.co/NsvmpKM/chibi-couple.gif" class="chibi" alt="chibi">  <div id="slide1" class="slide active">
+    <h1>Selamat 2 Bulan Cinta!</h1>
+    <p>
+      Hari ini, tepat dua bulan sejak aku dan kamu resmi jadi kita. Setiap hari yang aku lewati bersamamu selalu penuh warna, tawa, dan rasa sayang yang gak pernah habis. Terima kasih karena selalu ada, selalu sabar, dan selalu bikin aku merasa dicintai. Kamu istimewa banget, dan aku bersyukur banget punya kamu.<br><br>
+      Jujur, semakin hari aku makin ngerasa kamu bukan cuma tempat pulang, tapi juga tempat aku merasa paling nyaman. Rasa ingin memelukmu erat, mendekapmu hangat, dan berbagi tiap detik waktu bersama, makin besar.
+    </p>
+  </div>  <div id="slide2" class="slide">
+    <h1>Kamu Itu Candu</h1>
+    <p>
+      Kadang aku mikir, gimana bisa seseorang sehangat kamu datang di hidup aku? Kamu itu candu, tapi bukan yang nyakitin—malah yang bikin tenang, bikin nyaman, dan bikin pengen deket terus.<br><br>
+      Aku gak cuma pengen jadi pacar kamu. Aku pengen jadi alasan kamu senyum setiap hari, tempat kamu pulang saat lelah, dan pelukan yang selalu kamu rindukan. Yuk bareng terus, sampai tua.
+    </p>
+  </div>  <div class="nav">
+    <button onclick="prevSlide()">Sebelumnya</button>
+    <button onclick="nextSlide()">Selanjutnya</button>
+  </div>
+</div><script>
+  let current = 1;
+  function showSlide(num) {
+    document.querySelectorAll('.slide').forEach((s, i) => {
+      s.classList.remove('active');
+      if (i === num - 1) s.classList.add('active');
+    });
+  }
+  function nextSlide() {
+    if (current < 2) current++;
+    showSlide(current);
+  }
+  function prevSlide() {
+    if (current > 1) current--;
